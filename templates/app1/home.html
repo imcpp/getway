@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Getway</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!--<link rel="stylesheet" href="{%static 'css/css/bootstrap.min.css'% }">-->
+<link rel="stylesheet" href="{%static "css/home.css"%}">
+  </head>
+  <body>
+<nav style="background-color:#ccffcc" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+
+              <li style="font-size:1.5em;"><a href="#"><span  class=" glyphicon glyphicon-home">Home</span></a></li>
+              <li><a href="{%url "allcourses"%}">All courses</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-earphone">Contact </span></a></li>
+
+          </ul>
+          <form class="navbar-form navbar-left" action="/search/" method="POST">
+            {% csrf_token %}
+                <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search Courses" name="srh">
+
+              <button  type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search"></span> </button>
+
+             </div>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class=" glyphicon glyphicon-user ">Login</span></a></li>
+              <li><a href="#">Signup</a></li>
+
+          </ul>
+      </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<br><br>
+<script>
+  var i=0;
+  var images=[];
+  var time=2000;
+  images[0]='{%static "images/build.jpg"%}';
+  images[1]='{%static "images/laptop.jpg"%}';
+  images[2]='{%static "images/classroom.jpg"%}';
+  images[3]='{%static "images/laptop2.jpg"%}';
+  images[4]='{%static "images/classroom2.jpg"%}';
+
+  function changeimage()
+  {
+    document.slide.src=images[i];
+    if(i<images.length-1)
+    {
+      i++;
+    }
+    else {
+      i=0;
+    }
+    setTimeout("changeimage()",time);
+  }
+  window.onload=changeimage;
+
+</script>
+<div class="container" >
+
+      <img name="slide" width="100%"height="500px">
+
+
+</div>
+<br>
+<div class="container">
+    <div class="row"style="border:2px green solid;padding:10px ">
+          <div class=" col col-lg-8 " >
+              <h2 style="color:#ff6347; text-decoration:underline ;font-size:"2.0em"">Welcome To Getway</h2>
+              <b>  <p> <span style="font-size:30px">Getway</span> is the NO1 coaching in india.<br>we provides best faculties and facilities in india </p></b>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class=" col col-lg-4">
+              <div class="jumbotron" style="background-color: #dda0dd">
+                <h4 style="text-decoration:underline;color:black">important notice</h4>
+                <marquee direction="up" loop="10" onmouseover="stop();" onmouseout="start();"  scrolldelay="300" behavior="scroll">
+                  <ul>
+                    <li> <a  style="color:green" href="#" >admission open from 21st december</a></li>
+                    <li> <a  style="color:red" href="#" >admission open from 21st december</a></li>
+                    <li> <a  style="color:blue" href="#" >admission open from 21st december</a></li>
+                    <li> <a  style="color:yellow" href="#" >admission open from 21st december</a></li>
+                    <li> <a  style="color:orange" href="#" >admission open from 21st december</a></li>
+                    <li> <a  style="color:white" href="#" >admission open from 21st december</a></li>
+                    <li> <a  style="color:green" href="#" >admission open from 21st december</a></li>
+                    <li> <a  style="color:red" href="#" >admission open from 21st december</a></li>
+
+                  </ul>
+                </marquee>
+
+                </div>
+            </div>
+
+  </div>
+</div>
+<br><br>
+<div class="container">
+  <div class="row">
+
+            <div class="col col-lg-3" >
+                  <div class="jumbotron" style="background-color:#f5deb3;color:green" >
+                      <h3>Full time courses</h3>
+                      <p>time period for full time course is 1 years.for example c,c++.python,java etc</p>
+                    <button style="background:green" class="btn btn-primary btn-lg"type="button" name="button">know more</button>
+                  </div>
+
+          </div>
+
+    <div class="col col-lg-3 ">
+      <div class="jumbotron" style="background-color:#f5deb3;color:orange" >
+        <h3>Full time courses</h3>
+        <p>time period for full time course is 1 years.for example c,c++.python,java etc</p>
+      <button style="background:orange" class="btn btn-primary btn-lg"type="button" name="button">know more</button>
+    </div>
+    </div>
+
+    <div class="col col-lg-3 ">
+      <div class="jumbotron" style="background-color:#f5deb3;color:blue" >
+        <h3>Full time courses</h3>
+        <p>time period for full time course is 1 years.for example c,c++.python,java etc</p>
+
+    <button style="background:blue" class="btn btn-primary btn-lg"type="button" name="button">know more</button>
+        </div>
+    </div>
+    <div class="col col-lg-3 ">
+      <div class="jumbotron" style="background-color:#f5deb3;color:red" >
+        <h3>Full time courses</h3>
+        <p>time period for full time course is 1 years.for example c,c++.python,java etc</p>
+        <button style="background:red"class="btn btn-primary btn-lg"type="button" name="button">know more</button>
+    </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="container">
+  <div class="row">
+
+    <div class="col col-lg-6 box"  style=" border:#33cc33 2px solid;background-color:#99ffcc; padding-bottom: 10px " >
+      <h3 ><span class=" glyphicon glyphicon-picture " style=" color:#33cc33; text-decoration:underline  ">PHOTO GALLERY</span></h3>
+      <div class="row">
+        <div class="col col-lg-4 box">
+          <img style=" border: 2px red dotted "src="{%static "images/programmer.jpg"%}" alt="" height="100%" width="100%"><br><br>
+            <img style=" border: 2px red dotted " src="{%static "images/laptop2.jpg"%}" alt="" height="100%" width="100%">
+
+        </div>
+        <div class="col col-lg-4 box">
+            <img style=" border: 2px red dotted " src="{%static "images/programmer2.jpg"%}" alt="" height="100%" width="100%"><br><br>
+        <img  style=" border: 2px red dotted " src="{%static "images/classroom2.jpg"%}" alt="" height="100%" width="100%">
+        </div>
+        <div class="col col-lg-4 box">
+            <img style=" border: 2px red dotted " src="{%static "images/programmer3.jpg"%}" alt="" height="100%" width="100%"><br><br>
+
+              <button style=" margin-top: 20px" class="btn btn-primary btn-lg" type="button" name="button">view more</button>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <div class="col col-lg-6 box"  >
+        <div class="jumbotron" style="background:#3399ff">
+          <div class="row">
+            <div class="col col-lg-3 box">
+              <img style=" border: 2px green solid ; border-radius:40%" src="{%static "images/student.jpg"%}" alt="" height="200%" width="100%">
+            </div>
+            <div class="col col-lg-9 box" style=" color:green;border:#33cc33 2px solid;background-color:#99ffcc; border-radius:20%;padding:10px; display: inline-block ">
+               <h3 style="text-decoration:underline">What our student says</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                 et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+
+          </div>
+
+        </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+<br>
+<div class="jumbotron" style="background:orange;width:100%">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-3 box">
+          <h3 style= " color:red; text-decoration:underline  ">QUICK LINKS</h3>
+          <div class="" style=" font-size: 25px">
+             <a href="#">Home</a><br>
+             <a href="#">All courses</a><br>
+             <a href="#">Search</a><br>
+             <a href="#">Login</a><br>
+             <a href="#">Signup</a><br>
+
+            </div>
+        </div>
+      <div class="col col-lg-3 box">
+         <h3 ><span class="glyphicon glyphicon-map-marker" style="text-decoration:underline;color:red">Patna</span></h3>
+         <p style="color:blue">Parus Lok , 1st Floor, Boring Road Crossing, Near Quality Corner, Patna-800001</p>
+         <p style="color:blue" class="glyphicon glyphicon-phone-alt">9753375702</p>
+
+
+      </div>
+      <div class="col col-lg-3 box">
+        <h3 ><span class="glyphicon glyphicon-map-marker" style="text-decoration:underline;color:red">Delhi</span></h3>
+        <p style="color:blue">Parus Lok , 1st Floor, Boring Road Crossing, Near Quality Corner, Patna-800001</p>
+        <p style="color:blue" class="glyphicon glyphicon-phone-alt">9753375702</p>
+
+      </div>
+      <div class="col col-lg-3 box">
+        <h3 ><span class="glyphicon glyphicon-map-marker" style="text-decoration:underline;color:red">Bhopal</span></h3>
+        <p style="color:blue">Parus Lok , 1st Floor, Boring Road Crossing, Near Quality Corner, Patna-800001</p>
+        <p style="color:blue" class="glyphicon glyphicon-phone-alt">9753375702</p>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div class="jumbotron" style="background:red">
+      <div class="container">
+          <p style="color:white">Copyright (c) 2018 Getway. All rights reserved. /  <a style="color:white" href="#">Desinged and Devlop by CPSK</a> </p>
+
+      </div>
+
+
+</div>
+
+  </body>
+</html>

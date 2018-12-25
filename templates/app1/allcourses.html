@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <title>All cources</title>
+    <link rel="stylesheet" href="{%static "css/home.css"%}">
+  </head>
+  <body>
+    <div >
+      {% if messages %}
+          <ul class="messages" style="color:red; text-align: center; margin-top: 300px; ">
+            {%for k in messages%}
+                <li > <h1> <b>{{k}}</b> </h1> </li>
+            {%endfor%}
+          </ul>
+        {%endif%}
+    </div><br>
+ <br><br>
+    {%if allcourses%}
+
+
+            {%for course in allcourses%}
+
+              <div class="container">
+                <div class="jumbotron" style="background:#ccffcc; border-radius:10%">
+                  <div class="row">
+                    <div class="col col-lg-4 box">
+                      <img style="width:100%;" src="{{course.image.url}}" alt="">
+
+                    </div>
+                    <div class="col col-lg-8 box" style="color:#66ccff">
+                        <h3 style="color:#ff6600; text-decoration:underline">{{course.course_name}}  ({{course.course_price}}  only)</h3>
+                        <p>{{course.about}}</p>
+                        <div class="row">
+                            <div class="col col-lg-10 box">
+                                  <h4 style="text-decoration:underline overline; color: #ff3399"> By {{course.teacher}}  </h4>
+                                  <button class="btn btn-primary btn-lg"type="button" name="button"> JOIN </button>
+                            </div>
+                            <div class="col col-lg-2 box" style="color:green">
+                              <h4>starting: {{course.starting_date}}</h4>
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+            {%endfor%}
+
+
+
+      {%endif%}
+  
+  </body>
+</html>
