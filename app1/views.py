@@ -24,7 +24,7 @@ def search(request):
                 return render(request,"app1/allcourses.html",{"allcourses":match})
 
             else:
-                 messages.error(request,'SORRY!!!THIS COURSE IS NOT AVAILABLE !! ')
+                 messages.error(request,'SORRY!!!THIS COURSE IS NOT AVAILABLE !!! ')
                  return render(request,'app1/allcourses.html')
 
         else:
