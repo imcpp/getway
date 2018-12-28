@@ -32,3 +32,6 @@ def search(request):
             return render(request,'app1/home.html')
 
     return render(request,'app1/home.html')
+
+def login(request):
+    return render(request,'app1/home.html')

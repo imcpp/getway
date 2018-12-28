@@ -24,5 +24,6 @@ urlpatterns = [
     path('',views.home),
     path('allcourses/',views.allcourses,name="allcourses"),
     path('search/',views.search),
+    path('login/',views.login,name="login"),
 
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

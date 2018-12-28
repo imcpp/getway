@@ -4,13 +4,23 @@
   <head>
     <meta charset="utf-8">
     <title>Getway</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!--<link rel="stylesheet" href="{%static 'css/css/bootstrap.min.css'% }">-->
 <link rel="stylesheet" href="{%static "css/home.css"%}">
   </head>
+
+
   <body>
 <nav style="background-color:#ccffcc" class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
@@ -31,14 +41,91 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
 
              </div>
           </form>
-          <ul class="nav navbar-nav navbar-right">
+         <!-- <ul class="nav navbar-nav navbar-right">
               <li><a href="#"><span class=" glyphicon glyphicon-user ">Login</span></a></li>
               <li><a href="#">Signup</a></li>
 
+          </ul>-->
+          <ul class="nar navbar-nav navbar-right">
+            <button class="btn btn-danger navbar-btn" data-target="#login" data-toggle="modal">Login</button>
+                 
+
+          <button class="btn btn-danger navbar-btn" data-target="#signup" data-toggle="modal">Signup</button>
+      
           </ul>
-      </div><!-- /.navbar-collapse -->
+          </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+ <div class="modal fade" id="login" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-primary">
+          <div class="modal-header">
+            <h3 >Login</h3>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <form action="{% url 'login' %}" metho="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label><span class=" glyphicon glyphicon-user "></span> Username :</label>
+                  <input type="text" name="username" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label><span class="glyphicon glyphicon-lock"></span> Password :</label>
+                  <input type="text" name="password" class="form-control" />
+              </div>
+              <button  type="submit" class="btn btn-success">Login</button>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+          </div>
+
+      </div>
+
+
+  </div>
+</div>
+
+<div class="modal fade" id="signup" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-primary">
+          <div class="modal-header">
+            <h3 >Signup</h3>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <form action="" metho="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label><span class=" glyphicon glyphicon-user "></span> Username :</label>
+                  <input type="text" name="username" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label><span class="glyphicon glyphicon-lock"></span> Password :</label>
+                  <input type="text" name="password" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label><span class="glyphicon glyphicon-lock"></span> Confirm Password :</label>
+                  <input type="text" name="cpassword" class="form-control" />
+              </div>
+              <button  type="submit" class="btn btn-success">Signup</button>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+          </div>
+
+      </div>
+
+
+  </div>
+</div>
+
+
 <br><br>
 <script>
   var i=0;
@@ -240,7 +327,7 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
 </div>
 <div class="jumbotron" style="background:red">
       <div class="container">
-          <p style="color:white">Copyright (c) 2018 Getway. All rights reserved. /  <a style="color:white" href="#">Desinged and Devlop by CPSK</a> </p>
+          <p style="color:white">Copyright (c) 2018 Getway. All rights reserved. /  <a style="color:white" href="#">Designed and Developed by CPSK</a> </p>
 
       </div>
 
