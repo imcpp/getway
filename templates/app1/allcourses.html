@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-{%load staticfiles%}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+{% extends 'app1/base.html' %}
 
-    <title>searched cources</title>
-    <link rel="stylesheet" href="{%static "css/home.css"%}">
-  </head>
-  <body>
+{%  block content %}
+
+{%load staticfiles%}
+
     <div >
       {% if messages %}
           <ul class="messages" style="color:red; text-align: center; margin-top: 300px; ">
@@ -65,5 +59,4 @@
 
       {%endif%}
 
-  </body>
-</html>
+ {% endblock %}

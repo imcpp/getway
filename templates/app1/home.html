@@ -1,132 +1,9 @@
-<!DOCTYPE html>
+{% extends 'app1/base.html' %}
+
+{%  block content %}
+
+<h1 style="font-size:30px;color:red;">{{error}}</h1>
 {%load staticfiles%}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Getway</title>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!--<link rel="stylesheet" href="{%static 'css/css/bootstrap.min.css'% }">-->
-<link rel="stylesheet" href="{%static "css/home.css"%}">
-  </head>
-
-
-  <body>
-<nav style="background-color:#ccffcc" class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-
-              <li style="font-size:1.5em;"><a href="#"><span  class=" glyphicon glyphicon-home">Home</span></a></li>
-              <li><a href="{%url "allcourses"%}">All courses</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-earphone">Contact </span></a></li>
-
-          </ul>
-          <form class="navbar-form navbar-left" action="/search/" method="POST">
-            {% csrf_token %}
-                <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search Courses" name="srh">
-
-              <button  type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search"></span> </button>
-
-             </div>
-          </form>
-         <!-- <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class=" glyphicon glyphicon-user ">Login</span></a></li>
-              <li><a href="#">Signup</a></li>
-
-          </ul>-->
-          <ul class="nar navbar-nav navbar-right">
-            <button class="btn btn-danger navbar-btn" data-target="#login" data-toggle="modal">Login</button>
-                 
-
-          <button class="btn btn-danger navbar-btn" data-target="#signup" data-toggle="modal">Signup</button>
-      
-          </ul>
-          </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
- <div class="modal fade" id="login" role="dialog">
-  <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-primary">
-          <div class="modal-header">
-            <h3 >Login</h3>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-
-          <div class="modal-body">
-            <form action="{% url 'login' %}" metho="post">
-              {% csrf_token %}
-              <div class="form-group">
-                <label><span class=" glyphicon glyphicon-user "></span> Username :</label>
-                  <input type="text" name="username" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label><span class="glyphicon glyphicon-lock"></span> Password :</label>
-                  <input type="text" name="password" class="form-control" />
-              </div>
-              <button  type="submit" class="btn btn-success">Login</button>
-            </form>
-          </div>
-
-          <div class="modal-footer">
-          </div>
-
-      </div>
-
-
-  </div>
-</div>
-
-<div class="modal fade" id="signup" role="dialog">
-  <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-primary">
-          <div class="modal-header">
-            <h3 >Signup</h3>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-
-          <div class="modal-body">
-            <form action="" metho="post">
-              {% csrf_token %}
-              <div class="form-group">
-                <label><span class=" glyphicon glyphicon-user "></span> Username :</label>
-                  <input type="text" name="username" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label><span class="glyphicon glyphicon-lock"></span> Password :</label>
-                  <input type="text" name="password" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label><span class="glyphicon glyphicon-lock"></span> Confirm Password :</label>
-                  <input type="text" name="cpassword" class="form-control" />
-              </div>
-              <button  type="submit" class="btn btn-success">Signup</button>
-            </form>
-          </div>
-
-          <div class="modal-footer">
-          </div>
-
-      </div>
-
-
-  </div>
-</div>
-
-
-<br><br>
 <script>
   var i=0;
   var images=[];
@@ -159,9 +36,11 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
 
 </div>
 <br>
+
 <div class="container">
     <div class="row"style="border:2px green solid;padding:10px ">
           <div class=" col col-lg-8 " >
+
               <h2 style="color:#ff6347; text-decoration:underline ;font-size:"2.0em"">Welcome To Getway</h2>
               <b>  <p> <span style="font-size:30px">Getway</span> is the NO1 coaching in india.<br>we provides best faculties and facilities in india </p></b>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
@@ -286,53 +165,4 @@ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh
 
 </div>
 
-<br>
-<div class="jumbotron" style="background:orange;width:100%">
-  <div class="container">
-    <div class="row">
-      <div class="col col-lg-3 box">
-          <h3 style= " color:red; text-decoration:underline  ">QUICK LINKS</h3>
-          <div class="" style=" font-size: 25px">
-             <a href="#">Home</a><br>
-             <a href="#">All courses</a><br>
-             <a href="#">Search</a><br>
-             <a href="#">Login</a><br>
-             <a href="#">Signup</a><br>
-
-            </div>
-        </div>
-      <div class="col col-lg-3 box">
-         <h3 ><span class="glyphicon glyphicon-map-marker" style="text-decoration:underline;color:red">Patna</span></h3>
-         <p style="color:blue">Parus Lok , 1st Floor, Boring Road Crossing, Near Quality Corner, Patna-800001</p>
-         <p style="color:blue" class="glyphicon glyphicon-phone-alt">9753375702</p>
-
-
-      </div>
-      <div class="col col-lg-3 box">
-        <h3 ><span class="glyphicon glyphicon-map-marker" style="text-decoration:underline;color:red">Delhi</span></h3>
-        <p style="color:blue">Parus Lok , 1st Floor, Boring Road Crossing, Near Quality Corner, Patna-800001</p>
-        <p style="color:blue" class="glyphicon glyphicon-phone-alt">9753375702</p>
-
-      </div>
-      <div class="col col-lg-3 box">
-        <h3 ><span class="glyphicon glyphicon-map-marker" style="text-decoration:underline;color:red">Bhopal</span></h3>
-        <p style="color:blue">Parus Lok , 1st Floor, Boring Road Crossing, Near Quality Corner, Patna-800001</p>
-        <p style="color:blue" class="glyphicon glyphicon-phone-alt">9753375702</p>
-
-      </div>
-
-    </div>
-  </div>
-
-</div>
-<div class="jumbotron" style="background:red">
-      <div class="container">
-          <p style="color:white">Copyright (c) 2018 Getway. All rights reserved. /  <a style="color:white" href="#">Designed and Developed by CPSK</a> </p>
-
-      </div>
-
-
-</div>
-
-  </body>
-</html>
+{%  endblock %}

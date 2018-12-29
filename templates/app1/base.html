@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en" dir="ltr">
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <meta charset="utf-8">
+    <title>Getway</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="{%static 'css/css/bootstrap.min.css'% }">-->
+<link rel="stylesheet" href="{%static "css/home.css"%}">
+  </head>
+
+
+  <body>
+<nav style="background-color:#ccffcc" class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    
+      	<div class="container">
+
+      		<div  class="navbar-header">
+      			<button type="button" class="navbar-toggle" data-target="#collapse" data-toggle="collapse">
+      				<span class="glyphicon glyphicon-menu-hamburger"> 
+                </button>                       
+
+      			<a  style="font-size:25px" class="navbar-brand" role="button" href="{% url 'home' %}"><span  class="glyphicon glyphicon-home"></span>Home</a>
+      			
+      		</div>
+      	<div style="font-size:20px" class="collapse navbar-collapse" id="collapse">
+          <ul class="nav navbar-nav">
+
+              
+              <li><a  href="{% url 'allcourses' %}">All courses</a></li>
+              <li><a  href="#"><span class="glyphicon glyphicon-earphone">Contact </span></a></li>
+
+          </ul>
+          <form class="navbar-form navbar-left" action="/search/" method="POST">
+            {% csrf_token %}
+                <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search Courses" name="srh">
+
+              <button  type="submit" class="btn btn-default"> <span class="glyphicon glyphicon-search"></span> </button>
+
+             </div>
+          </form>
+         <!-- <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class=" glyphicon glyphicon-user ">Login</span></a></li>
+              <li><a href="#">Signup</a></li>
+
+          </ul>-->
+          <ul class="nar navbar-nav navbar-right">
+
+          	{% if user.is_authenticated %}
+          		<label style="font-size:30px;color:red;">Hello : {{request.user}}</label>
+          		<a href="javascript:{document.getElementById('logout').submit()}" class="btn btn-info" role="button">Logout</a>
+          	{% else %}
+            <button class="btn btn-info navbar-btn" data-target="#login" data-toggle="modal"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+            <button class="btn btn-info navbar-btn" data-target="#signup" data-toggle="modal"> <span class=" glyphicon glyphicon-user "></span>Signup</button>
+            {% endif %}
+      
+          </ul>
+      </div>
+     </div> <!--/.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+ <form id="logout"  method="post" action="{% url 'logout' %}">
+  	{% csrf_token %}
+  	<input type="hidden" />
+ </form>
+ <div class="modal fade" id="login" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-primary ">
+          <div class="modal-header">
+            <h3 >Login</h3>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <form action="{% url 'login' %}" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label><span class=" glyphicon glyphicon-user "></span> Username :</label>
+                  <input type="text" name="username" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label><span class="glyphicon glyphicon-lock"></span> Password :</label>
+                  <input type="password" name="password" class="form-control" required />
+              </div>
+              <button  type="submit" class="btn btn-success">Login</button>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+          	<button class="btn btn-info navbar-btn" data-target="#signup" data-toggle="modal" >Create Account</button>
+            
+          </div>
+
+      </div>
+
+
+  </div>
+</div>
+
+<div class="modal fade" id="signup" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-primary">
+          <div class="modal-header">
+            <h3 >Signup</h3>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <div class="modal-body">
+            <form action="{% url 'signup' %}" method="post">
+              {% csrf_token %}
+              <div class="form-group">
+                <label><span class=" glyphicon glyphicon-user "></span> Username :</label>
+                  <input type="text" name="username" class="form-control" required/>
+              </div>
+              <div class="form-group">
+                <label><span class="glyphicon glyphicon-lock"></span> Password :</label>
+                  <input type="password" name="password" class="form-control" required />
+              </div>
+              <div class="form-group">
+                <label><span class="glyphicon glyphicon-lock"></span> Confirm Password :</label>
+                  <input type="text" name="cpassword" class="form-control" required />
+              </div>
+              <button  type="submit" class="btn btn-success">Signup</button>
+            </form>
+          </div>
+
+          <div class="modal-footer">
+
+          </div>
+
+      </div>
+
+
+  </div>
+</div>
+
+
+<br><br>
+
+{% block content %}
+
+{% endblock %}
+
+<br>
+<div class="jumbotron" style="background:orange;width:100%">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-3 box">
+          <h3 style= " color:red; text-decoration:underline  ">QUICK LINKS</h3>
+          <div class="" style=" font-size: 25px">
+             <a href="{% url 'home' %}">Home</a><br>
+             <a href="#">All courses</a><br>
+             <a href="#">Search</a><br>
+             <a href="#">Login</a><br>
+             <a href="#">Signup</a><br>
+
+            </div>
+        </div>
+      <div class="col col-lg-3 box">
+         <h3 ><span class="glyphicon glyphicon-map-marker" style="text-decoration:underline;color:red">Patna</span></h3>
+         <p style="color:blue">Parus Lok , 1st Floor, Boring Road Crossing, Near Quality Corner, Patna-800001</p>
+         <p style="color:blue" class="glyphicon glyphicon-phone-alt">9753375702</p>
+
+
+      </div>
+      <div class="col col-lg-3 box">
+        <h3 ><span class="glyphicon glyphicon-map-marker" style="text-decoration:underline;color:red">Delhi</span></h3>
+        <p style="color:blue">Parus Lok , 1st Floor, Boring Road Crossing, Near Quality Corner, Patna-800001</p>
+        <p style="color:blue" class="glyphicon glyphicon-phone-alt">9753375702</p>
+
+      </div>
+      <div class="col col-lg-3 box">
+        <h3 ><span class="glyphicon glyphicon-map-marker" style="text-decoration:underline;color:red">Bhopal</span></h3>
+        <p style="color:blue">Parus Lok , 1st Floor, Boring Road Crossing, Near Quality Corner, Patna-800001</p>
+        <p style="color:blue" class="glyphicon glyphicon-phone-alt">9753375702</p>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<div class="jumbotron" style="background:red">
+      <div class="container">
+          <p style="color:white">Copyright (c) 2018 Getway. All rights reserved. /  <a style="color:white" href="#">Designed and Developed by CPSK</a> </p>
+
+      </div>
+
+
+</div>
+
+  </body>
+</html>

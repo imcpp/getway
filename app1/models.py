@@ -8,3 +8,4 @@ class Course(models.Model):
     image=models.ImageField(upload_to='image')
     about=models.TextField()
     starting_date=models.DateField()
+    video=models.FileField(null=True,blank=True,upload_to='video')
