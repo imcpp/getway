@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR=os.path.join(BASE_DIR,"templates")
-STATIC_DIR=os.path.join(BASE_DIR,"static")
+STATIC_ROOT=os.path.join(BASE_DIR,"static")
 
 
 
@@ -28,7 +28,7 @@ SECRET_KEY = '%08qdq982pl*a$c5miny#^n2=ssab5_8$%m%!yjrp(%cp(#bbb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['shubham8488.pythonanywhere.com']
+ALLOWED_HOSTS = ['shubham8488.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -122,6 +122,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[STATIC_DIR,]
+#STATICFILES_DIRS=[STATIC_ROOT,]
 MEDIA_ROOT=os.path.join(BASE_DIR,"media")
 MEDIA_URL='/media/'
